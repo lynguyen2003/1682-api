@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1682-api", "1682-api.csproj", "{434D86A8-0BEE-486F-ACB6-472C8573C9DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{7A169E2E-721F-4B7D-96F6-ACE192AA0415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServices", "..\DataServices\DataServices.csproj", "{B44E8BE9-1121-4346-A57E-22484FE48F42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{434D86A8-0BEE-486F-ACB6-472C8573C9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434D86A8-0BEE-486F-ACB6-472C8573C9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434D86A8-0BEE-486F-ACB6-472C8573C9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434D86A8-0BEE-486F-ACB6-472C8573C9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A169E2E-721F-4B7D-96F6-ACE192AA0415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A169E2E-721F-4B7D-96F6-ACE192AA0415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A169E2E-721F-4B7D-96F6-ACE192AA0415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A169E2E-721F-4B7D-96F6-ACE192AA0415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44E8BE9-1121-4346-A57E-22484FE48F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44E8BE9-1121-4346-A57E-22484FE48F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44E8BE9-1121-4346-A57E-22484FE48F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44E8BE9-1121-4346-A57E-22484FE48F42}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACB81E3A-4A3D-4480-956C-6D2B2B1970D6}
+	EndGlobalSection
+EndGlobal
