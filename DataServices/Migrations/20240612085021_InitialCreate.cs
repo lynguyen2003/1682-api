@@ -62,6 +62,31 @@ namespace DataServices.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RefreshTokens",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    user_id = table.Column<int>(type: "int", nullable: false),
+                    token = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    jwt_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_used = table.Column<bool>(type: "bit", nullable: false),
+                    is_revoked = table.Column<bool>(type: "bit", nullable: false),
+                    added_date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    expiry_date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RefreshTokens", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_RefreshTokens_Users_user_id",
+                        column: x => x.user_id,
+                        principalTable: "Users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Videos",
                 columns: table => new
                 {
@@ -208,6 +233,11 @@ namespace DataServices.Migrations
                 column: "video_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RefreshTokens_user_id",
+                table: "RefreshTokens",
+                column: "user_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Videos_user_id",
                 table: "Videos",
                 column: "user_id");
@@ -227,6 +257,9 @@ namespace DataServices.Migrations
 
             migrationBuilder.DropTable(
                 name: "Likes");
+
+            migrationBuilder.DropTable(
+                name: "RefreshTokens");
 
             migrationBuilder.DropTable(
                 name: "Videos");

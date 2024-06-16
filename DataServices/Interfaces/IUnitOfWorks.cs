@@ -8,6 +8,8 @@ namespace DataServices.Interfaces
 {
     public interface IUnitOfWorks
     {
+        IVideosRepository Videos { get; }
+        IAuthsRepository Auths { get; }
         Task<bool> CompleteAsync();
 
     }

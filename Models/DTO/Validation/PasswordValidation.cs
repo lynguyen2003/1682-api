@@ -6,9 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Models
+namespace Models.DTO.Validation
 {
-    public class PasswordComplexityAttribute : ValidationAttribute
+    public class PasswordValidation : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

@@ -28,6 +28,7 @@ namespace Models.Entities
         public ICollection<Followers> Followers { get; set; }
         public ICollection<Followers> Followings { get; set; }
         public ICollection<Favourites> Favourites { get; set; }
+        public ICollection<RefreshToken> RefreshTokens { get; set; }
 
     }
 }

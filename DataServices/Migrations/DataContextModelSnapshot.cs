@@ -121,6 +121,44 @@ namespace DataServices.Migrations
                     b.ToTable("Likes");
                 });
 
+            modelBuilder.Entity("Models.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<DateTime>("added_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("expiry_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("is_revoked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("is_used")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("jwt_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("user_id");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("Models.Entities.Users", b =>
                 {
                     b.Property<int>("id")
@@ -288,6 +326,17 @@ namespace DataServices.Migrations
                     b.Navigation("Videos");
                 });
 
+            modelBuilder.Entity("Models.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("Models.Entities.Users", "Users")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("user_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("Models.Entities.Videos", b =>
                 {
                     b.HasOne("Models.Entities.Users", "Users")
@@ -310,6 +359,8 @@ namespace DataServices.Migrations
                     b.Navigation("Followings");
 
                     b.Navigation("Likes");
+
+                    b.Navigation("RefreshTokens");
 
                     b.Navigation("Videos");
                 });

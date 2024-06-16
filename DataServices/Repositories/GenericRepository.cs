@@ -47,7 +47,6 @@ namespace DataServices.Repositories
         public virtual Task<bool> Delete(int id)
         {
             throw new NotImplementedException();
-
         }
     }
 }

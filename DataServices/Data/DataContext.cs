@@ -16,6 +16,8 @@ namespace DataServices.Data
         public DbSet<Likes> Likes { get; set; }
         public DbSet<Favourites> Favourites { get; set; }
 
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
