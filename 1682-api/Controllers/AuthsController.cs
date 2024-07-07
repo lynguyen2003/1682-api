@@ -6,6 +6,7 @@ using DataServices.Repositories;
 using DataServices.Services.EmailServices;
 using DataServices.Services.JwtServices;
 using DataServices.Services.PasswordServices;
+using DataServices.Services.RedisCacheService;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
@@ -30,7 +31,7 @@ namespace _1682_api.Controllers
         private readonly IJwtService _jwtService;
         private readonly IEmailService _emailService;
 
-        public AuthsController(IUnitOfWorks unitOfWorks, IMapper mapper, IPasswordService passwordService, IJwtService jwtService, IEmailService emailService) : base(unitOfWorks, mapper)
+        public AuthsController(IUnitOfWorks unitOfWorks, IMapper mapper, IRedisCacheService cache, IPasswordService passwordService, IJwtService jwtService, IEmailService emailService) : base(unitOfWorks, mapper, cache)
         {
             _passwordService = passwordService;
             _jwtService = jwtService;

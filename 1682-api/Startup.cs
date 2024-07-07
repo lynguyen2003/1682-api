@@ -5,6 +5,7 @@ using DataServices.Repositories;
 using DataServices.Services.EmailServices;
 using DataServices.Services.JwtServices;
 using DataServices.Services.PasswordServices;
+using DataServices.Services.RedisCacheService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -101,13 +102,16 @@ namespace _1682_api
                 });
             });
 
+
             var emailSettings = Configuration.GetSection("EmailSettings").Get<EmailSettings>();
             services.AddSingleton(emailSettings);
 
             services.AddScoped<IUnitOfWorks, UnitOfWorks>();
+
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IRedisCacheService, RedisCacheService>();
 
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddAutoMapper(typeof(Startup));

@@ -16,6 +16,10 @@ namespace Models.DTO.Video
         public string thumbnail_url { get; set; }
         public int likes_count { get; set; }
         public int views_count { get; set; }
+
+        public bool IsLikedByUser { get; set; } 
+        public int CommentsCount { get; set; }
+
         public DateTime? Timestamp { get; set; }
     }
 }

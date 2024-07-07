@@ -16,6 +16,7 @@ namespace DataServices.Repositories
         
         public IVideosRepository Videos { get; private set; }
         public IAuthsRepository Auths { get; private set; }
+        public ILikesRepository Likes { get; private set; }
 
         public UnitOfWorks(DataContext context, ILoggerFactory loggerFactory)
         {
@@ -24,6 +25,7 @@ namespace DataServices.Repositories
 
             Videos = new VideosRepository(_context, logger);
             Auths = new AuthsRepository(_context, logger);
+            Likes = new LikesRepository(_context, logger);
         }
 
 

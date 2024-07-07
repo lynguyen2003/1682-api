@@ -10,6 +10,7 @@ namespace DataServices.Interfaces
 {
     public interface IAuthsRepository
     {
+        Task<Users> FindAsync(int id);
         Task<Users> FindByEmailAsync(string email);
         Task<bool> CreateAccountAsync(Users user);
         Task<bool> CheckPasswordAsync(Users user, string password);

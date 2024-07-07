@@ -20,6 +20,11 @@ namespace DataServices.Repositories
         {
         }
 
+        public async Task<Users> FindAsync(int id)
+        {
+            return await _dbSet.FindAsync(id);
+        }
+
         public async Task<Users> FindByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.email == email);
